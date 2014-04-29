@@ -21,7 +21,7 @@ setup(
     maintainer_email='arnaud.grausem@gmail.com',
     url='https://github.com/agrausem/britney-http-signature',
     license='PSF',
-    description='Python implementation of SPORE',
+    description='Http Signature authenticatio middleware for britney',
     long_description=long_description,
     py_modules=['britney_http_signature'],
     download_url='http://pypi.python.org/pypi/britney-http-signature',
