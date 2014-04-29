@@ -4,6 +4,7 @@ from britney.utils import get_http_date, get_user_agent
 from britney_http_signature import HmacHttpSignature
 from Crypto.Hash import HMAC, SHA256
 import base64
+from six import b
 
 
 class TestHmacHttpSignature(unittest.TestCase):
@@ -45,8 +46,8 @@ class TestHmacHttpSignature(unittest.TestCase):
         to_sign.append('date: %s' % today)
         to_sign.append('x-api-key-id: my_key_id')
         to_sign = '\n'.join(to_sign)
-        hmac = HMAC.new('cdvbdfsibvqklscb', digestmod=SHA256)
-        hmac.update(to_sign)
+        hmac = HMAC.new(b'cdvbdfsibvqklscb', digestmod=SHA256)
+        hmac.update(b(to_sign))
         digest = hmac.digest()
         sign = base64.b64encode(digest)
 

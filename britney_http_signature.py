@@ -10,6 +10,7 @@ Middlewares that bring several http signature authentication into britney spore 
 from britney.middleware import ApiKey
 from britney.middleware.base import add_header
 from http_signature.sign import HeaderSigner
+from six import b
 
 
 class HmacHttpSignature(ApiKey):
@@ -27,10 +28,10 @@ class HmacHttpSignature(ApiKey):
         :param hash_algorithm: a hash algorithm in sha1, sha256, sha512 (defaults to sha256)
         """
         super(HmacHttpSignature, self).__init__(key_header, key_id)
-        headers = map(lambda h: h.lower(), self.default_headers + [self.key])
+        headers = [h.lower() for h in self.default_headers + [self.key]]
         algorithm = 'hmac-%s' % hash_algorithm
-        self.header_signer = HeaderSigner(key_id=key_id, secret=secret, algorithm=algorithm,
-                                          headers=headers)
+        self.header_signer = HeaderSigner(key_id=key_id, secret=b(secret),
+                                          algorithm=algorithm, headers=headers)
 
     def process_request(self, environ):
         """

@@ -1,2 +1,3 @@
 britney
--e git+https://github.com/digitalbazaar/py-http-signature#egg=http_signature
+six
+-e git+https://github.com/agrausem/py-http-signature#egg=http_signature
