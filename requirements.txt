@@ -1,0 +1,2 @@
+britney
+-e git+https://github.com/digitalbazaar/py-http-signature#egg=http_signature
