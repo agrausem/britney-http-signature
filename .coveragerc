@@ -1,0 +1,7 @@
+[run]
+source = 
+    britney_http_signature
+
+[report]
+omit =
+    */tests/*
