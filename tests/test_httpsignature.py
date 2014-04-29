@@ -1,7 +1,7 @@
 import unittest
 
 from britney.utils import get_http_date, get_user_agent
-from britney_httpsignature import HmacHttpSignature
+from britney_http_signature import HmacHttpSignature
 from Crypto.Hash import HMAC, SHA256
 import base64
 
